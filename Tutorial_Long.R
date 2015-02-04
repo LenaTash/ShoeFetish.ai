@@ -1,0 +1,24 @@
+Installations:
+a. R (required)
+	http://cran.rstudio.com/
+	click on "Download R for (Mac) OS X"
+	download "R-3.1.2-mavericks.pkg"
+	run installer, accepting defaults
+	
+b. RStudio (optional)
+	better GUI for R
+	http://www.rstudio.com/products/rstudio/download/
+	download, open, and add to applications folder
+	
+c. R packages
+	run R or RStudio
+	in the left box (or the Console), run the following commands:
+		install.packages("h2o")
+		install.packages("jpeg")
+		install.packages("pdist")
+	(optional) install.packages("shiny")
+			
+d. nConvert
+	// TO DO
+	
+
