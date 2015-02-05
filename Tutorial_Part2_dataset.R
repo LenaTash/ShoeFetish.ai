@@ -38,4 +38,4 @@ vec2 <- as.data.frame(t(vec))
 remove(i,x,vec,y)
 
 write.csv(vec2,file=paste(working_data_dir,'train_matrix.csv', sep=""))
-save(vec2, directory, directory_show, file=paste(working_data_dir,'checkpoint1.Rdata', sep=""))
+save(vec2, directory_show, file=paste(working_data_dir,'checkpoint1.Rdata', sep=""))
