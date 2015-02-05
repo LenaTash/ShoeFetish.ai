@@ -41,3 +41,8 @@ ptrain_main <- as.matrix(h2o.deepfeatures(train_h2o,model_main,layer=-1))
 save(ptrain_main, file=paste(working_data_dir,"model_main/ptrain_main.RData",sep=""))
 
 
+### REMOVE UNNECESSARY OBJECTS AND SAVE CHECKPOINT ###
+h2o.rm(localH2O, c("initial", "model_cluster", "train"))
+remove(vec2, initial_h2o, model_cluster, train_h2o)
+
+save(ptrain_main, directory_show, predictors, file=paste(working_data_dir,'checkpoint2.Rdata', sep=""))

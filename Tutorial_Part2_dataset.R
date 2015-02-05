@@ -37,5 +37,6 @@ if (length(directory) > 1) {
 vec2 <- as.data.frame(t(vec))
 remove(i,x,vec,y)
 
+### SAVE CHECKPOINT ###
 write.csv(vec2,file=paste(working_data_dir,'train_matrix.csv', sep=""))
 save(vec2, directory_show, file=paste(working_data_dir,'checkpoint1.Rdata', sep=""))
