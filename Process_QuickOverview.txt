@@ -12,14 +12,14 @@ Initial data transformations:
 
 K-means clustering:
 (using H2O)
-		9 clusters, "furthest" initialization
+		42 clusters, "furthest" initialization
 
 Autoencoder (deep learning):
 (using H2O)
 		predictors: 10000 columns of 0-255 values
 		outcome: label of K-means cluster
 		activation: Tanh
-		hidden layers: 250,50,10,50,250
+		hidden layers: 250,50,10
 		epochs: 8
 		autoencoder: TRUE
 	
