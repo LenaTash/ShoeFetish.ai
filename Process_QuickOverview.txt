@@ -1,33 +1,33 @@
-Data used:
-500 images from DSW
-[link]
+Training data used:
+		500 images from DSW
+		https://github.com/LenaTash/ShoeFetish.ai/tree/master/data
 
 Initial data transformations:
-(using XnConvert [link])
-	detect edges
-	grayscale
-	resize to 100x100 pixels
+(using XnConvert [http://www.xnview.com/en/xnconvert/])
+		detect edges
+		grayscale
+		resize to 100x100 pixels
 (using R)
-	convert to 10000 wide vector of 0-255 value for each pixel
+		convert to 10000 wide vector of 0-255 value for each pixel
 
 K-means clustering:
 (using H2O)
-	9 clusters, "furthest" initialization
+		9 clusters, "furthest" initialization
 
 Autoencoder (deep learning):
 (using H2O)
-	predictors: 10000 columns of 0-255 values
-	outcome: label of K-means cluster
-	activation: Tanh
-	hidden layers: 250,50,10,50,250
-	epochs: 8
-	autoencoder: TRUE
+		predictors: 10000 columns of 0-255 values
+		outcome: label of K-means cluster
+		activation: Tanh
+		hidden layers: 250,50,10,50,250
+		epochs: 8
+		autoencoder: TRUE
 	
 Extracting layer:
 (using H2O)
-	h2o.deepfeatures
-	layer: 3
+		h2o.deepfeatures
+		layer: 3
 	
 Distance comparison:
 (using R)
-	pdist
+		pdist
