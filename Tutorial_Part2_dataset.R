@@ -7,6 +7,8 @@ initial_data_dir <- "~/Documents/ShoeFetish/data/dsw/image/"
 working_data_dir <- "~/Documents/ShoeFetish/shoefetish01/shoefetish010/"
 nconvert_dir <- "~/Documents/ShoeFetish/shoefetish01/shoefetish011/nconvert"
 
+### NOTE: DATA TO DOWNLOAD INTO INITIAL_DATA_DIR 
+### CAN BE FOUND AT https://github.com/LenaTash/ShoeFetish.ai/tree/master/data ###
 
 
 
