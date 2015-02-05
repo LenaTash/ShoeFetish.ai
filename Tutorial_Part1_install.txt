@@ -1,4 +1,5 @@
-Installations:
+Part 1. Installations: R, R packages [h2o, jpeg, pdist, shiny], NConvert
+
 a. R (required)
 	http://cran.rstudio.com/
 	click on "Download R for (Mac) OS X"
