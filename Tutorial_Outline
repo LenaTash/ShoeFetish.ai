@@ -7,3 +7,7 @@ Part 2. Initial data transformations and building dataset
 Part 3. Building models in H2O
 
 Part 4. Scoring new image against model (or, "how to actually get some recommendations")
+
+
+Optional Part 5. Implementing model as a Shiny app.
+		(how-to steps, and finished code included in separate files)
