@@ -18,7 +18,10 @@ c. R packages
 		install.packages("pdist")
 	(optional) install.packages("shiny")
 			
-d. nConvert
-	// TO DO
+d. NConvert
+	http://www.xnview.com/en/nconvert/
+	download version correct for your computer (.tgz file)
+	unzip file
+
 	
 

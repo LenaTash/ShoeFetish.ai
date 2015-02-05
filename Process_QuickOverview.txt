@@ -3,7 +3,7 @@ Training data used:
 		https://github.com/LenaTash/ShoeFetish.ai/tree/master/data
 
 Initial data transformations:
-(using XnConvert [http://www.xnview.com/en/xnconvert/])
+(using NConvert [http://www.xnview.com/en/nconvert/#downloads])
 		detect edges
 		grayscale
 		resize to 100x100 pixels
