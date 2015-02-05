@@ -1,0 +1,9 @@
+TUTORIAL
+
+Part 1. Installations: R, R packages [h2o, jpeg, pdist, shiny], nConvert
+
+Part 2. Initial data transformations and building dataset
+
+Part 3. Building models in H2O
+
+Part 4. Scoring new image against model (or, "how to actually get some recommendations")
