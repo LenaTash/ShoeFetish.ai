@@ -1,4 +1,5 @@
 # Optional Part 5. Implementing model as a Shiny app.
+# !!! FINISHED CODE !!! #
 
 # to run app, run following line:
 # print(source('Tutorial_Part5_Opt_Shiny_finishedCode.R'))
@@ -166,21 +167,16 @@ ui <- shinyUI(fluidPage(
   
   titlePanel("ShoeFetish 0.1.1"),
   
-  sidebarLayout(
-    sidebarPanel(fileInput("newpic", label = "Upload a picture to be tested", accept = '.jpg')),
-    mainPanel()
-  ),
+  fileInput("newpic", label = "Upload a picture to be tested", accept = '.jpg'),
     
-  conditionalPanel("input.newpic.length == 1",
-                   h5("Your shoe:"),
-                   imageOutput("testingImage", height=100),
-                   h5("Similar shoes:"),
-                   imageOutput("resultImage1", height=100),
-                   imageOutput("resultImage2", height=100),
-                   imageOutput("resultImage3", height=100),
-                   imageOutput("resultImage4", height=100),
-                   imageOutput("resultImage5", height=100)
-  )
+	 h5("Your shoe:"),
+	 imageOutput("testingImage", height=100),
+	 h5("Similar shoes:"),
+	 imageOutput("resultImage1", height=100),
+	 imageOutput("resultImage2", height=100),
+	 imageOutput("resultImage3", height=100),
+	 imageOutput("resultImage4", height=100),
+	 imageOutput("resultImage5", height=100)
 ))
 
 
