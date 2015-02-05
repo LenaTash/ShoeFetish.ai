@@ -1,0 +1,166 @@
+Optional Part 5. 
+Implementing model as a Shiny app.
+How-to steps
+
+
+1. Start off with Shiny single-document framework:
+
+					server <- function(input, output) {
+						# Shiny server-side functions go here
+					}
+
+					ui <- shinyUI(fluidPage(
+						titlePanel("Your App Title Here")
+						# input collectors here
+						# output presenters here
+					))
+
+					shinyApp(ui = ui, server = server)
+
+
+
+2. Add fileInput input collector inside ui function, separated from title panel by a comma
+
+				ui <- shinyUI(fluidPage(
+					titlePanel("Your App Title Here"),
+					fileInput("newpic", label = "Upload a picture to be tested", accept = '.jpg')
+				))
+
+
+3. Add a reactive function inside server function that returns file path if file input status changes successfully
+
+				server <- function(input, output) {
+						findFiles <- reactive({
+								if(length(input$newpic)>0) {
+										a <- input$newpic[1,]
+      							a$datapath
+								}
+						})
+				}
+				
+4. Add a function to print testing image if file input status changes successfully
+Note: functions inside server do NOT need to be separated by commas like in the ui function
+
+				server <- function(input, output) {
+						findFiles <- reactive({
+								if(length(input$newpic)>0) {
+										a <- input$newpic[1,]
+      							a$datapath
+								}
+						})
+						
+						output$testingImage <- renderImage({
+							if(length(input$newpic)>0) {
+								p <- findFiles()
+								list(p)
+							} else {list("")}
+						}, deleteFile = FALSE)
+				}
+				
+5. Add function to ui which will print testing image output
+NOTE: don't forget that comma
+
+				ui <- shinyUI(fluidPage(
+					titlePanel("Your App Title Here"),
+					fileInput("newpic", label = "Upload a picture to be tested", accept = '.jpg')
+					h5("Your shoe:"),
+					imageOutput("testingImage", height=100)
+				))
+				
+
+
+
+
+
+CHECKPOINT 1:
+your code should look like this:
+
+					server <- function(input, output) {
+						findFiles <- reactive({
+								if(length(input$newpic)>0) {
+										a <- input$newpic[1,]
+      							a$datapath
+								}
+						})
+						output$testingImage <- renderImage({
+							if(length(input$newpic)>0) {
+								p <- findFiles()
+								list(p)
+							} else {list("")}
+						}, deleteFile = FALSE)
+					}
+
+					ui <- shinyUI(fluidPage(
+						titlePanel("Your App Title Here"),
+						fileInput("newpic", label = "Upload a picture to be tested", accept = '.jpg')
+						h5("Your shoe:"),
+						imageOutput("testingImage", height=100)
+					))
+
+					shinyApp(ui = ui, server = server)
+
+
+
+
+
+
+6. Add code to assemble dataset and create models to the beginning of the file, BEFORE the shinyApp call.
+(Tutorial_Part2_dataset and Tutorial_Part3_models)
+Note: unless you put "if" statements around building the model, the model will be rebuilt every time you run the app.
+In case you wante me to be more straightforward, yes, that was a very strong hint to put if statements around building your model.
+Also note: initializing h2o needs to be outside of the if statement, and the if statement needs to have an "else" clause that loads the pre-built model.
+
+See Tutorial_Part5_Opt_Shiny_finishedCode lines 18-70 for my solution.
+
+
+
+7. Change testingImage output function to find test file path on its own, without findFiles function.
+
+
+
+8. Change the findFiles reactive function inside server function to run recommendation and return list of 5 closest files.
+(Tutorial_Part4_recommend)
+
+See Tutorial_Part5_Opt_Shiny_finishedCode lines 78-117 for my solution.
+
+
+
+9. Use testingImage output function inside server function as example for 5 functions, each rendering one of the 5 image paths now returned by findFiles.
+
+See Tutorial_Part5_Opt_Shiny_finishedCode lines 126-160 for my solution.
+
+
+
+10. Add 5 functions to ui to print corresponding result images.
+
+						ui <- shinyUI(fluidPage(
+	
+							titlePanel("Your App Title Here"),
+	
+							fileInput("newpic", label = "Upload a picture to be tested", accept = '.jpg'),
+		
+							 h5("Your shoe:"),
+							 imageOutput("testingImage", height=100),
+							 h5("Similar shoes:"),
+							 imageOutput("resultImage1", height=100),
+							 imageOutput("resultImage2", height=100),
+							 imageOutput("resultImage3", height=100),
+							 imageOutput("resultImage4", height=100),
+							 imageOutput("resultImage5", height=100)
+						))
+
+
+
+
+
+CHECKPOINT 2:
+your code should now look somewhat like Tutorial_Part5_Opt_Shiny_finishedCode.R
+Note: order of functions inside server doesn't matter. order of functions everywhere else matters.
+
+
+
+
+TO RUN APP, save file, and run the following in R:
+	print(source(path_to_file_and_file_name))
+
+i.e. print(source('Tutorial_Part5_Opt_Shiny_finishedCode.R'))
